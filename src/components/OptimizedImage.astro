@@ -1,0 +1,35 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  sizes?: string;
+}
+
+const { 
+  src, 
+  alt, 
+  width, 
+  height, 
+  loading = 'lazy', 
+  class: className = '',
+  sizes
+} = Astro.props;
+
+// For now, we'll use regular img tags with loading="lazy"
+// In production, you can use Astro's Image component from astro:assets
+---
+
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={loading}
+  class={className}
+  sizes={sizes}
+  decoding="async"
+/>

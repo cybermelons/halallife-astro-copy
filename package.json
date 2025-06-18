@@ -11,7 +11,9 @@
     "extract-simple": "node extract-assets-simple.js"
   },
   "dependencies": {
-    "astro": "^5.9.4"
+    "@astrojs/image": "^0.18.0",
+    "astro": "^5.9.4",
+    "sharp": "^0.34.2"
   },
   "devDependencies": {
     "@astrojs/react": "^4.3.0",
