@@ -1,14 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.tsx';
+import RestaurantGrid from '../components/RestaurantGrid.tsx';
 ---
 
 <Layout title="GoHalalLife - Find Halal Restaurants Near You">
-  <div class="min-h-screen">
-    <!-- Hero Section will go here -->
-    <section class="bg-background py-20">
-      <div class="sitewidth">
-        <h1 class="mainheading text-center">Find Halal Restaurants</h1>
-      </div>
-    </section>
-  </div>
+  <Hero client:load />
+  
+  <!-- Restaurant Grid Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="sitewidth">
+      <h2 class="heading text-center mb-12">Featured Restaurants</h2>
+      <RestaurantGrid client:visible />
+    </div>
+  </section>
 </Layout>
