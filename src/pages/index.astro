@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.tsx';
 import RestaurantGrid from '../components/RestaurantGrid.tsx';
+import CuisineCarousel from '../components/CuisineCarousel.tsx';
+import VerificationSteps from '../components/VerificationSteps.tsx';
+import BlogCarousel from '../components/BlogCarousel.tsx';
 import EligibilityBanner from '../components/EligibilityBanner.tsx';
 import WhatIsHalal from '../components/WhatIsHalal.tsx';
 ---
@@ -16,6 +19,15 @@ import WhatIsHalal from '../components/WhatIsHalal.tsx';
       <RestaurantGrid client:visible />
     </div>
   </section>
+
+  <!-- Popular Cuisines Carousel -->
+  <CuisineCarousel client:visible />
+
+  <!-- Verification Steps -->
+  <VerificationSteps client:visible />
+
+  <!-- Blog Carousel -->
+  <BlogCarousel client:visible />
 
   <!-- Eligibility Banner -->
   <EligibilityBanner />
