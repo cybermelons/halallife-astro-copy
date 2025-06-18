@@ -1,3 +1,8 @@
+/**
+ * Asset extraction script using Puppeteer
+ * Run with: pnpx puppeteer@latest node download-assets.js
+ * This avoids installing puppeteer as a project dependency
+ */
 const puppeteer = require('puppeteer');
 const fs = require('fs').promises;
 const path = require('path');

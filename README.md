@@ -48,8 +48,9 @@ cd halallife-astro-copy
 # Install dependencies
 pnpm install
 
-# Extract assets from original site
-pnpm run extract-assets
+# Extract assets from original site (requires puppeteer)
+# Use pnpx to run without installing puppeteer as dependency
+pnpx puppeteer@latest node scripts/download-assets.js
 
 # Start development server
 pnpm dev
