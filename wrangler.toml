@@ -1,5 +1,5 @@
 # Cloudflare Pages configuration for HalalLife Astro site
-name = "halallife-astro-copy"
+name = "halallife-astro"
 compatibility_date = "2025-06-18"
 
 # Build configuration
