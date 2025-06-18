@@ -10,27 +10,27 @@ const Header = () => {
       label: 'Restaurants', 
       href: '#',
       dropdown: [
-        { label: 'All Restaurants', href: '#' },
-        { label: 'Near Me', href: '#' },
-        { label: 'Recently Added', href: '#' },
-        { label: 'Popular', href: '#' }
+        { label: 'All Restaurants', href: '/restaurants' },
+        { label: 'Near Me', href: '/restaurants/near-me' },
+        { label: 'Recently Added', href: '/restaurants/recent' },
+        { label: 'Popular', href: '/restaurants/popular' }
       ]
     },
     { 
       label: 'Cuisines', 
       href: '#',
       dropdown: [
-        { label: 'Mediterranean', href: '#' },
-        { label: 'Indian', href: '#' },
-        { label: 'Middle Eastern', href: '#' },
-        { label: 'Pakistani', href: '#' },
-        { label: 'Turkish', href: '#' },
-        { label: 'All Cuisines', href: '#' }
+        { label: 'Mediterranean', href: '/restaurants?cuisine=mediterranean' },
+        { label: 'Indian', href: '/restaurants?cuisine=indian' },
+        { label: 'Middle Eastern', href: '/restaurants?cuisine=middle-eastern' },
+        { label: 'Pakistani', href: '/restaurants?cuisine=pakistani' },
+        { label: 'Turkish', href: '/restaurants?cuisine=turkish' },
+        { label: 'All Cuisines', href: '/restaurants/cuisines' }
       ]
     },
-    { label: 'About', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'Contact', href: '#' }
+    { label: 'About', href: '/about' },
+    { label: 'Blog', href: '/blogs' },
+    { label: 'Contact', href: '/about#contact-us' }
   ];
 
   return (

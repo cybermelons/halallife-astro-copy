@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { SearchIcon as Search, ClockIcon as Clock } from '@/components/icons';
+
+// Sample blog posts based on extracted content
+const blogPosts = [
+  {
+    id: 1,
+    title: "Spotlight on the Top Halal Restaurants Near You",
+    excerpt: "Explore the best halal restaurants nearby with our top picks. Enjoy a culinary journey featuring delicious kebabs and rich curries.",
+    readTime: "30 min read",
+    date: "24 Oct 2024",
+    category: "Guide",
+    image: "/blog-placeholder-1.jpg"
+  },
+  {
+    id: 2,
+    title: "Your Ultimate Global Halal Travel Guide",
+    excerpt: "Explore top halal dining options worldwide with our guide. Whether traveling for business or pleasure, find the best halal spots.",
+    readTime: "30 min read",
+    date: "24 Oct 2024",
+    category: "Travel",
+    image: "/blog-placeholder-2.jpg"
+  },
+  {
+    id: 3,
+    title: "How You Can Ensure Authentic Halal Dining",
+    excerpt: "Learn to find authentic halal dining options by checking certifications and understanding the verification process.",
+    readTime: "30 min read",
+    date: "24 Oct 2024",
+    category: "Tips",
+    image: "/blog-placeholder-3.jpg"
+  },
+  {
+    id: 4,
+    title: "Why Community Reviews Are Your Best Halal Guide",
+    excerpt: "Explore local community feedback to discover the best halal restaurants in your area through trusted reviews.",
+    readTime: "30 min read",
+    date: "24 Oct 2024",
+    category: "Community",
+    image: "/blog-placeholder-4.jpg"
+  }
+];
+
+// Create sections by duplicating posts
+const featuredPosts = [...blogPosts, ...blogPosts].slice(0, 8);
+const recentlyAdded = [...blogPosts, ...blogPosts].slice(0, 8);
+const mostPopular = [...blogPosts, ...blogPosts].slice(0, 8);
+---
+
+<Layout title="The Halal Food Journal - GoHalalLife" description="Read, explore, and eat better Halal. Browse our collection of guides, tips, and stories about halal dining.">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-emerald-50 to-white py-16 md:py-24">
+    <div class="sitewidth">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="mainheading mb-4 text-secondary">
+          The Halal Food Journal
+        </h1>
+        <p class="text-xl md:text-2xl text-text-secondary mb-8">
+          Read, explore, and eat better Halal.
+        </p>
+        
+        <!-- Search Bar -->
+        <div class="relative max-w-2xl mx-auto">
+          <Search class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <Input 
+            type="text" 
+            placeholder="Search anything you like"
+            class="pl-12 pr-4 py-3 text-lg rounded-full border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Blogs Section -->
+  <section class="py-16">
+    <div class="sitewidth">
+      <h2 class="heading mb-8">Feature Blogs</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {featuredPosts.map((post, index) => (
+          <a href={`/blog/${post.id}`} class="group">
+            <Card class="h-full hover:shadow-lg transition-shadow">
+              <div class="aspect-video bg-gray-200 relative overflow-hidden">
+                {index === 0 && (
+                  <div class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+                    Featured
+                  </div>
+                )}
+                {post.category && index === 1 && (
+                  <div class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    {post.category}
+                  </div>
+                )}
+                <div class="w-full h-full bg-gradient-to-br from-emerald-100 to-emerald-50"></div>
+              </div>
+              <CardContent class="p-6">
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                <p class="text-text-secondary text-sm mb-4 line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <div class="flex items-center gap-4 text-sm text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <Clock class="w-4 h-4" />
+                    {post.readTime}
+                  </span>
+                  <span>•</span>
+                  <span>{post.date}</span>
+                </div>
+              </CardContent>
+            </Card>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Recently Added Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="sitewidth">
+      <h2 class="heading mb-8">Recently Added</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {recentlyAdded.map((post) => (
+          <a href={`/blog/${post.id}`} class="group">
+            <Card class="h-full hover:shadow-lg transition-shadow">
+              <div class="aspect-video bg-gray-200 relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-blue-100 to-blue-50"></div>
+              </div>
+              <CardContent class="p-6">
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                <p class="text-text-secondary text-sm mb-4 line-clamp-2">
+                  {post.excerpt.substring(0, 60)}...
+                </p>
+                <div class="flex items-center gap-4 text-sm text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <Clock class="w-4 h-4" />
+                    {post.readTime}
+                  </span>
+                  <span>•</span>
+                  <span>{post.date}</span>
+                </div>
+              </CardContent>
+            </Card>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Most Popular Section -->
+  <section class="py-16">
+    <div class="sitewidth">
+      <h2 class="heading mb-8">Most Popular</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {mostPopular.map((post) => (
+          <a href={`/blog/${post.id}`} class="group">
+            <Card class="h-full hover:shadow-lg transition-shadow">
+              <div class="aspect-video bg-gray-200 relative overflow-hidden">
+                <div class="w-full h-full bg-gradient-to-br from-purple-100 to-purple-50"></div>
+              </div>
+              <CardContent class="p-6">
+                <h3 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                <p class="text-text-secondary text-sm mb-4 line-clamp-2">
+                  {post.excerpt.substring(0, 60)}...
+                </p>
+                <div class="flex items-center gap-4 text-sm text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <Clock class="w-4 h-4" />
+                    {post.readTime}
+                  </span>
+                  <span>•</span>
+                  <span>{post.date}</span>
+                </div>
+              </CardContent>
+            </Card>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
