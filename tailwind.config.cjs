@@ -10,9 +10,30 @@ module.exports = {
         primary: {
           DEFAULT: '#10b981',
           hover: '#059669',
+          foreground: '#ffffff',
         },
-        secondary: '#171717',
+        secondary: {
+          DEFAULT: '#171717',
+          foreground: '#ffffff',
+        },
         cuisinecard: '#ecfdf5',
+        background: '#ffffff',
+        foreground: '#000000',
+        muted: {
+          DEFAULT: '#f9fafb',
+          foreground: '#4b5563',
+        },
+        accent: {
+          DEFAULT: '#ecfdf5',
+          foreground: '#10b981',
+        },
+        destructive: {
+          DEFAULT: '#ef4444',
+          foreground: '#ffffff',
+        },
+        border: '#e5e5e5',
+        input: '#e5e5e5',
+        ring: '#10b981',
       },
       maxWidth: {
         '7xl': '80rem',
@@ -23,8 +44,27 @@ module.exports = {
         '80': '80',
         '90': '90',
         '100': '100',
-      }
+      },
+      borderRadius: {
+        lg: '0.5rem',
+        md: '0.375rem',
+        sm: '0.25rem',
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
