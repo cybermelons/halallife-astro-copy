@@ -1,0 +1,72 @@
+# Cloudflare Pages configuration for HalalLife Astro site
+name = "halallife-astro-copy"
+compatibility_date = "2025-06-18"
+
+# Build configuration
+[build]
+command = "pnpm build"
+build = "dist"
+
+# Environment variables (non-sensitive)
+[vars]
+API_VERSION = "v1"
+SITE_URL = "https://halallife.pages.dev"
+
+# Development settings
+[dev]
+port = 8788
+local_protocol = "http"
+
+# Pages Functions configuration (for future API routes)
+[[kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-id"
+
+# Durable Objects (for future real-time features)
+# [[durable_objects.bindings]]
+# name = "SESSIONS"
+# class_name = "SessionManager"
+# script_name = "session-worker"
+
+# Routes for edge functions
+[[routes]]
+pattern = "/api/*"
+zone_name = "gohalallife.com" # Update when you have custom domain
+
+# Compatibility flags for edge runtime
+[compatibility_flags]
+nodejs_compat = true
+
+# Deployment settings
+[pages_build_output_dir]
+path = "dist"
+
+# Future API routes will go in /functions directory
+# Example structure:
+# /functions/
+#   /api/
+#     restaurants.js
+#     search.js
+#     auth.js
+
+# Secrets to add via CLI (DO NOT commit these):
+# wrangler secret put SUPABASE_URL
+# wrangler secret put SUPABASE_ANON_KEY
+# wrangler secret put JWT_SECRET
+# wrangler secret put STRIPE_SECRET_KEY
+
+# R2 bucket binding (for future image uploads)
+# [[r2_buckets]]
+# binding = "IMAGES"
+# bucket_name = "halallife-images"
+
+# Analytics Engine (for custom analytics)
+# [[analytics_engine_datasets]]
+# binding = "ANALYTICS"
+
+# Rate limiting rules
+# [rate_limiting]
+# threshold = 50
+# window = 60
+# action = "challenge"
