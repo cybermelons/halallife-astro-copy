@@ -7,9 +7,22 @@ module.exports = {
         'Manrope': ['Manrope', 'sans-serif'],
       },
       colors: {
-        primary: '#10b981', // Emerald 500
-        'primary-hover': '#059669', // Emerald 600
-        secondary: '#171717', // Neutral 900
+        primary: {
+          DEFAULT: '#10b981',
+          hover: '#059669',
+        },
+        secondary: '#171717',
+        cuisinecard: '#ecfdf5',
+      },
+      maxWidth: {
+        '7xl': '80rem',
+      },
+      zIndex: {
+        '60': '60',
+        '70': '70',
+        '80': '80',
+        '90': '90',
+        '100': '100',
       }
     },
   },

@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors - Exact from site */
+  --primary: #10b981; /* Emerald 500 */
+  --primary-hover: #059669; /* Emerald 600 */
+  --secondary: #171717; /* Neutral 900 */
+  --cuisinecard: #ecfdf5; /* Emerald 50 */
+  
+  /* Extended Color Palette */
+  --emerald-50: #ecfdf5;
+  --emerald-100: #d1fae5;
+  --emerald-200: #a7f3d0;
+  --emerald-300: #6ee7b7;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --emerald-800: #065f46;
+  --emerald-900: #064e3b;
+  
+  /* Neutral Colors */
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-800: #262626;
+  --neutral-900: #171717;
+  
+  /* Background Colors */
+  --background: #ffffff;
+  --background-secondary: #f9fafb;
+  
+  /* Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #4b5563;
+  --text-light: #9ca3af;
+  
+  /* Spacing */
+  --space-unit: 0.25rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Classes - Matching Original */
+.mainheading {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+}
+
+.heading {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+}
+
+.subheading {
+  @apply text-xl md:text-2xl lg:text-3xl font-bold;
+}
+
+/* Site Width Container */
+.sitewidth {
+  @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-[var(--primary)] border border-[var(--primary)] text-white cursor-pointer rounded 
+         hover:bg-[var(--primary-hover)] hover:border-[var(--primary-hover)] 
+         transition duration-300 ease-in-out px-4 py-2
+         flex gap-2.5 justify-center items-center;
+}
+
+.btn-secondary {
+  @apply text-[var(--secondary)] border border-[var(--secondary)] cursor-pointer rounded
+         hover:bg-[var(--secondary)] hover:text-white 
+         transition duration-300 ease-in-out px-4 py-2
+         flex gap-2.5 justify-center items-center;
+}
+
+/* Card Hover Effect */
+.hovereffect {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer;
+}
+
+/* Custom Scrollbar Hide */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Z-index utilities */
+.index-10 { z-index: 10; }
+.index-20 { z-index: 20; }
+.index-30 { z-index: 30; }
+.index-40 { z-index: 40; }
+.index-50 { z-index: 50; }
