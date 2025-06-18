@@ -4,23 +4,23 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    company: [
-      { label: 'About Us', href: '/about' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Careers', href: '/careers' },
-      { label: 'Press', href: '/press' }
+    about: [
+      { label: 'GoHalalLife', href: '/about#go-halal-life' },
+      { label: 'Who We Are', href: '/about#who-we-are' },
+      { label: 'Mission Statement', href: '/about#mission-statement' },
+      { label: 'Halal Verification Process', href: '/about#about-verify' },
+      { label: 'Contact Us', href: '/about#contact-us' }
     ],
     resources: [
+      { label: 'FAQ', href: '/' },
       { label: 'Blog', href: '/blogs' },
-      { label: 'FAQ', href: '/faq' },
-      { label: 'Submit a Restaurant', href: '/submit-restaurant' },
-      { label: 'Report an Issue', href: '/report' }
+      { label: 'Submit A Restaurant', href: '/' },
+      { label: 'Report an Issue', href: '/' }
     ],
     legal: [
-      { label: 'Terms & Conditions', href: '/terms' },
-      { label: 'Privacy Policy', href: '/privacy' },
-      { label: 'Cookie Policy', href: '/cookies' },
-      { label: 'Disclaimer', href: '/disclaimer' }
+      { label: 'Terms & Condition', href: '/' },
+      { label: 'Privacy Policy', href: '/' },
+      { label: 'Cookie Policy', href: '/' }
     ],
     connect: [
       { label: 'Facebook', href: 'https://facebook.com/gohalallife', external: true },
@@ -69,9 +69,9 @@ const Footer = () => {
 
           {/* Links Sections */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h4 className="font-semibold mb-4">About</h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {footerLinks.about.map((link) => (
                 <li key={link.label}>
                   <a 
                     href={link.href}
@@ -167,10 +167,10 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="bg-black/20">
-        <div className="sitewidth py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>© {currentYear} GoHalalLife. All rights reserved.</p>
-            <p>Made with ❤️ for the Muslim community</p>
+        <div className="sitewidth py-6">
+          <div className="text-center text-sm text-gray-400">
+            <p>GoHalalLife © All Rights Reserved {currentYear}</p>
+            <p className="mt-1">Go Halal Life is the product of Logiveo LLC.</p>
           </div>
         </div>
       </div>

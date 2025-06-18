@@ -1,0 +1,387 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { 
+  ShieldIcon as Shield, 
+  UsersIcon as Users, 
+  SearchIcon as Search, 
+  Building2Icon as Building2, 
+  AccessibilityIcon as Wheelchair, 
+  EyeIcon as Eye, 
+  EarIcon as Ear, 
+  FilterIcon as Filter 
+} from '@/components/icons';
+---
+
+<Layout title="About Go Halal Life" description="Your Trusted Guide to Halal Living — One Restaurant at a Time. Learn about GoHalalLife's mission to make finding authentic Halal food effortless, inclusive, and trustworthy.">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-emerald-50 to-white py-16 md:py-24">
+    <div class="sitewidth">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="mainheading mb-6 text-secondary">
+          About <span class="text-primary">Go Halal Life</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-text-secondary font-medium">
+          Your Trusted Guide to Halal Living — One Restaurant at a Time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-16">
+    <div class="sitewidth">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="heading mb-6 text-center">Our Mission</h2>
+        <p class="text-lg text-text-secondary text-center mb-12">
+          At Go Halal Life, we believe finding authentic Halal food should be effortless, inclusive, and trustworthy—whether you're a practicing Muslim, a curious foodie, or someone with accessibility needs.
+        </p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Card>
+            <CardContent class="p-6 text-center">
+              <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Search class="w-8 h-8 text-primary" />
+              </div>
+              <h3 class="text-lg font-semibold mb-2">Discover Certified Halal</h3>
+              <p class="text-text-secondary text-sm">Help users discover certified Halal restaurants</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-6 text-center">
+              <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Users class="w-8 h-8 text-primary" />
+              </div>
+              <h3 class="text-lg font-semibold mb-2">Connect Community</h3>
+              <p class="text-text-secondary text-sm">Connect the community through user reviews, vlogs, and food stories</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-6 text-center">
+              <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Filter class="w-8 h-8 text-primary" />
+              </div>
+              <h3 class="text-lg font-semibold mb-2">Smart Filters</h3>
+              <p class="text-text-secondary text-sm">Offer filters for accessibility, certification, cuisine, and budget</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-6 text-center">
+              <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Building2 class="w-8 h-8 text-primary" />
+              </div>
+              <h3 class="text-lg font-semibold mb-2">Inclusive Platform</h3>
+              <p class="text-text-secondary text-sm">Make Halal eating inclusive for all, regardless of background or ability</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why GoHalalLife Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="sitewidth">
+      <h2 class="heading text-center mb-12">Why GoHalalLife?</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <Card>
+          <CardContent class="p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                <Shield class="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-3">Trust in Halal Certification</h3>
+                <p class="text-text-secondary">
+                  We go beyond labels. Every restaurant listed on Go Halal Life is clearly marked with its Halal status—whether it's certified by an official body, verified as Muslim-owned, or flagged by the community. Our goal is to give users confidence in what they're eating, every single time.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent class="p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                <Users class="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-3">Community-powered platform</h3>
+                <p class="text-text-secondary">
+                  Our platform is built on real experiences, not just algorithms. We highlight user-submitted reviews, photos, ratings, and recommendations—so you're not just browsing places, you're benefiting from a growing, diverse Halal-loving community.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent class="p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                <Wheelchair class="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-3">Accessibility for everyone</h3>
+                <p class="text-text-secondary text-sm text-gray-600 mb-2">(blind, deaf, mobility needs)</p>
+                <p class="text-text-secondary">
+                  We believe that enjoying Halal food should be easy and inclusive for all. Whether you're blind, deaf, or have mobility needs, Go Halal Life helps you find restaurants that support your requirements—with filters and features designed for real-world accessibility.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent class="p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                <Search class="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-3">One-stop solution for Halal seekers</h3>
+                <p class="text-text-secondary">
+                  No more switching between apps, reviews, or uncertified listings. Go Halal Life brings you verified Halal restaurants, community feedback, cuisine filters, accessibility info, and digital tools—all in one place. Because Halal living should be simple.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verification Process Section -->
+  <section class="py-16" id="about-verify">
+    <div class="sitewidth">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="heading text-center mb-4">How do we verify Halal Restaurants?</h2>
+        <p class="text-lg text-text-secondary text-center mb-12">
+          We verify halal restaurants through these 3 methods.
+        </p>
+        
+        <div class="space-y-8">
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 bg-primary text-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-bold">
+                  1
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Official Certification Check</h3>
+                  <p class="text-text-secondary mb-3">
+                    We start by verifying if the restaurant holds a valid halal certification from globally recognized authorities such as:
+                  </p>
+                  <ul class="list-disc list-inside text-text-secondary space-y-1">
+                    <li>Islamic Food and Nutrition Council of America (IFANCA)</li>
+                    <li>American Halal Foundation (AHF)</li>
+                    <li>Halal Transactions of Omaha (HTO)</li>
+                    <li>Islamic Services of America (ISA)</li>
+                    <li>Halal Food Council USA (HFCUSA)</li>
+                  </ul>
+                  <p class="text-text-secondary mt-3">
+                    We use official digital tools, QR-code scans, and direct communication with certification bodies to validate authenticity.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 bg-primary text-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-bold">
+                  2
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Ownership Verification</h3>
+                  <p class="text-text-secondary">
+                    Next, we confirm whether the restaurant is owned or co-owned by Muslims, emphasizing the owners' commitment to halal compliance throughout their business operations.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 bg-primary text-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl font-bold">
+                  3
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Ingredient and Supply Chain Evaluation</h3>
+                  <p class="text-text-secondary">
+                    We thoroughly assess the sourcing of ingredients, ensuring all meat and poultry products are exclusively procured from halal-certified suppliers. Additionally, we verify that strict protocols are implemented to avoid cross-contamination.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card class="border-dashed border-2 border-primary/30 bg-primary/5">
+            <CardContent class="p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 bg-primary/20 text-primary rounded-full flex-shrink-0 flex items-center justify-center">
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">On-Site Inspection (In Progress)</h3>
+                  <p class="text-text-secondary">
+                    Our verification includes on-site inspections of restaurant facilities, kitchens, storage areas, and preparation methods. We confirm adherence to halal standards in cooking processes, equipment usage, and cleanliness.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 bg-primary text-white rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Users class="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Community Feedback Analysis</h3>
+                  <p class="text-text-secondary">
+                    Finally, we review real customer feedback and endorsements from local Islamic communities, reinforcing that the restaurant consistently serves genuine halal cuisine and maintains consumer trust.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accessibility Commitment Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="sitewidth">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="heading text-center mb-12">Our Commitment to Accessibility</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Eye class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Blind and Screen-Reader-Friendly</h3>
+                  <p class="text-text-secondary">
+                    Our website is designed with screen reader compatibility in mind—making it easy for blind users to search, explore, and access restaurant info independently.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Ear class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Deaf-Friendly Features (Text-First Content)</h3>
+                  <p class="text-text-secondary">
+                    All key content is presented in clear, written formats. No videos without captions, no voice-only elements—just straightforward, accessible information.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Wheelchair class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Wheelchair Accessibility Info</h3>
+                  <p class="text-text-secondary">
+                    We highlight restaurants with ramps, step-free entry, accessible restrooms, and seating so users with mobility needs can dine out with confidence.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent class="p-8">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center">
+                  <Filter class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-3">Filter Features to Match Needs</h3>
+                  <p class="text-text-secondary">
+                    Easily find restaurants that meet your accessibility requirements using filters for blind-, deaf-, or wheelchair-friendly options—because everyone's experience matters.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-16" id="contact-us">
+    <div class="sitewidth">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="heading mb-8">Have A Question, Suggestion, Or Halal Spot To Share?</h2>
+        
+        <form class="space-y-6">
+          <div>
+            <label for="name" class="block text-left font-medium mb-2">Name <span class="text-red-500">*</span></label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block text-left font-medium mb-2">Email <span class="text-red-500">*</span></label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-left font-medium mb-2">Message <span class="text-red-500">*</span></label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            ></textarea>
+          </div>
+          
+          <Button type="submit" size="lg" class="w-full sm:w-auto">
+            Submit
+          </Button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>
