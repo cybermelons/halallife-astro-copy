@@ -4,7 +4,8 @@
   "description": "Asset extraction script for HalalLife site copy",
   "main": "download-assets.js",
   "scripts": {
-    "extract": "node download-assets.js"
+    "extract": "node download-assets.js",
+    "extract-simple": "node extract-assets-simple.js"
   },
   "dependencies": {
     "puppeteer": "^21.0.0"

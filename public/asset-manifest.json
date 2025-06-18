@@ -1,0 +1,163 @@
+{
+  "timestamp": "2025-06-18T02:47:35.888Z",
+  "totalAssets": 31,
+  "downloaded": 31,
+  "failed": 0,
+  "assets": [
+    {
+      "path": "/assets/logos/gohalallifelogo.png",
+      "url": "https://gohalallife.com/assets/logos/gohalallifelogo.png",
+      "localPath": "/public/assets/logos/gohalallifelogo.png"
+    },
+    {
+      "path": "/assets/logos/websitelogo.png",
+      "url": "https://gohalallife.com/assets/logos/websitelogo.png",
+      "localPath": "/public/assets/logos/websitelogo.png"
+    },
+    {
+      "path": "/assets/images/trustedby-1.svg",
+      "url": "https://gohalallife.com/assets/images/trustedby-1.svg",
+      "localPath": "/public/assets/images/trustedby-1.svg"
+    },
+    {
+      "path": "/assets/images/trustedby-2.svg",
+      "url": "https://gohalallife.com/assets/images/trustedby-2.svg",
+      "localPath": "/public/assets/images/trustedby-2.svg"
+    },
+    {
+      "path": "/assets/images/trustedby-3.svg",
+      "url": "https://gohalallife.com/assets/images/trustedby-3.svg",
+      "localPath": "/public/assets/images/trustedby-3.svg"
+    },
+    {
+      "path": "/assets/images/trustedby-4.svg",
+      "url": "https://gohalallife.com/assets/images/trustedby-4.svg",
+      "localPath": "/public/assets/images/trustedby-4.svg"
+    },
+    {
+      "path": "/assets/images/home-semicircle.png",
+      "url": "https://gohalallife.com/assets/images/home-semicircle.png",
+      "localPath": "/public/assets/images/home-semicircle.png"
+    },
+    {
+      "path": "/assets/images/egligible.png",
+      "url": "https://gohalallife.com/assets/images/egligible.png",
+      "localPath": "/public/assets/images/egligible.png"
+    },
+    {
+      "path": "/assets/images/findcleanhalalfood.png",
+      "url": "https://gohalallife.com/assets/images/findcleanhalalfood.png",
+      "localPath": "/public/assets/images/findcleanhalalfood.png"
+    },
+    {
+      "path": "/assets/images/verify-halal.png",
+      "url": "https://gohalallife.com/assets/images/verify-halal.png",
+      "localPath": "/public/assets/images/verify-halal.png"
+    },
+    {
+      "path": "/assets/images/contactelement.png",
+      "url": "https://gohalallife.com/assets/images/contactelement.png",
+      "localPath": "/public/assets/images/contactelement.png"
+    },
+    {
+      "path": "/assets/images/footerimage.png",
+      "url": "https://gohalallife.com/assets/images/footerimage.png",
+      "localPath": "/public/assets/images/footerimage.png"
+    },
+    {
+      "path": "/assets/images/blog1.png",
+      "url": "https://gohalallife.com/assets/images/blog1.png",
+      "localPath": "/public/assets/images/blog1.png"
+    },
+    {
+      "path": "/assets/images/blog2.png",
+      "url": "https://gohalallife.com/assets/images/blog2.png",
+      "localPath": "/public/assets/images/blog2.png"
+    },
+    {
+      "path": "/assets/images/blog3.png",
+      "url": "https://gohalallife.com/assets/images/blog3.png",
+      "localPath": "/public/assets/images/blog3.png"
+    },
+    {
+      "path": "/assets/images/blog4.png",
+      "url": "https://gohalallife.com/assets/images/blog4.png",
+      "localPath": "/public/assets/images/blog4.png"
+    },
+    {
+      "path": "/assets/icons/trust.png",
+      "url": "https://gohalallife.com/assets/icons/trust.png",
+      "localPath": "/public/assets/icons/trust.png"
+    },
+    {
+      "path": "/assets/icons/shield.svg",
+      "url": "https://gohalallife.com/assets/icons/shield.svg",
+      "localPath": "/public/assets/icons/shield.svg"
+    },
+    {
+      "path": "/assets/icons/accessibility.svg",
+      "url": "https://gohalallife.com/assets/icons/accessibility.svg",
+      "localPath": "/public/assets/icons/accessibility.svg"
+    },
+    {
+      "path": "/assets/icons/instagram.svg",
+      "url": "https://gohalallife.com/assets/icons/instagram.svg",
+      "localPath": "/public/assets/icons/instagram.svg"
+    },
+    {
+      "path": "/assets/icons/facebook.svg",
+      "url": "https://gohalallife.com/assets/icons/facebook.svg",
+      "localPath": "/public/assets/icons/facebook.svg"
+    },
+    {
+      "path": "/assets/icons/america.png",
+      "url": "https://gohalallife.com/assets/icons/america.png",
+      "localPath": "/public/assets/icons/america.png"
+    },
+    {
+      "path": "/assets/icons/mexican.png",
+      "url": "https://gohalallife.com/assets/icons/mexican.png",
+      "localPath": "/public/assets/icons/mexican.png"
+    },
+    {
+      "path": "/assets/icons/chinese.png",
+      "url": "https://gohalallife.com/assets/icons/chinese.png",
+      "localPath": "/public/assets/icons/chinese.png"
+    },
+    {
+      "path": "/assets/icons/italian.png",
+      "url": "https://gohalallife.com/assets/icons/italian.png",
+      "localPath": "/public/assets/icons/italian.png"
+    },
+    {
+      "path": "/assets/icons/japanese.png",
+      "url": "https://gohalallife.com/assets/icons/japanese.png",
+      "localPath": "/public/assets/icons/japanese.png"
+    },
+    {
+      "path": "/assets/icons/indian.png",
+      "url": "https://gohalallife.com/assets/icons/indian.png",
+      "localPath": "/public/assets/icons/indian.png"
+    },
+    {
+      "path": "/assets/icons/pakistan.png",
+      "url": "https://gohalallife.com/assets/icons/pakistan.png",
+      "localPath": "/public/assets/icons/pakistan.png"
+    },
+    {
+      "path": "/assets/icons/thai.png",
+      "url": "https://gohalallife.com/assets/icons/thai.png",
+      "localPath": "/public/assets/icons/thai.png"
+    },
+    {
+      "path": "/assets/icons/korean.png",
+      "url": "https://gohalallife.com/assets/icons/korean.png",
+      "localPath": "/public/assets/icons/korean.png"
+    },
+    {
+      "path": "/assets/icons/vietnamese.png",
+      "url": "https://gohalallife.com/assets/icons/vietnamese.png",
+      "localPath": "/public/assets/icons/vietnamese.png"
+    }
+  ]
+}
