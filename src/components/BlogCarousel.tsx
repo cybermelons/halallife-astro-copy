@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -59,8 +59,25 @@ const BlogCarousel = () => {
     }
   ];
 
-  const itemsPerView = 3;
+  const [itemsPerView, setItemsPerView] = useState(3);
   const maxIndex = Math.max(0, blogPosts.length - itemsPerView);
+
+  // Update items per view based on screen size
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 768) {
+        setItemsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(3);
+      }
+    };
+
+    updateItemsPerView();
+    window.addEventListener('resize', updateItemsPerView);
+    return () => window.removeEventListener('resize', updateItemsPerView);
+  }, []);
 
   const handlePrevious = () => {
     setCurrentIndex(Math.max(0, currentIndex - 1));

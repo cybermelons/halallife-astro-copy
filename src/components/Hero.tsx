@@ -56,6 +56,7 @@ const Hero = () => {
                   value={searchLocation}
                   onChange={(e) => setSearchLocation(e.target.value)}
                   className="pl-10 h-12 md:h-14 text-base md:text-lg"
+                  aria-label="Search location"
                 />
               </div>
               <Button 

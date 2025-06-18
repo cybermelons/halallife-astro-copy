@@ -25,8 +25,27 @@ const CuisineCarousel = () => {
     { id: 8, name: 'Malaysian', count: 89, image: '/assets/images/cuisine-malaysian.jpg', color: 'bg-pink-50' },
   ];
 
-  const itemsPerView = 4;
+  const [itemsPerView, setItemsPerView] = useState(4);
   const maxIndex = Math.max(0, cuisines.length - itemsPerView);
+
+  // Update items per view based on screen size
+  useEffect(() => {
+    const updateItemsPerView = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(1);
+      } else if (window.innerWidth < 768) {
+        setItemsPerView(2);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(3);
+      } else {
+        setItemsPerView(4);
+      }
+    };
+
+    updateItemsPerView();
+    window.addEventListener('resize', updateItemsPerView);
+    return () => window.removeEventListener('resize', updateItemsPerView);
+  }, []);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -111,7 +130,7 @@ const CuisineCarousel = () => {
             {cuisines.map((cuisine) => (
               <div 
                 key={cuisine.id} 
-                className="w-full md:w-1/2 lg:w-1/4 flex-shrink-0 px-3"
+                className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 px-3"
               >
                 <a 
                   href={`/cuisines/${cuisine.name.toLowerCase()}`}

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Responsive Test - GoHalalLife">
+  <div class="sitewidth py-8">
+    <h1 class="mainheading mb-8">Responsive Breakpoints Test</h1>
+    
+    <div class="mb-8 p-4 bg-gray-100 rounded">
+      <p class="font-semibold mb-2">Current viewport:</p>
+      <p class="block sm:hidden">Mobile (< 640px)</p>
+      <p class="hidden sm:block md:hidden">Small (640px - 768px)</p>
+      <p class="hidden md:block lg:hidden">Medium (768px - 1024px)</p>
+      <p class="hidden lg:block xl:hidden">Large (1024px - 1280px)</p>
+      <p class="hidden xl:block">Extra Large (> 1280px)</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+      <div class="bg-primary text-white p-4 rounded">Box 1</div>
+      <div class="bg-primary text-white p-4 rounded">Box 2</div>
+      <div class="bg-primary text-white p-4 rounded">Box 3</div>
+      <div class="bg-primary text-white p-4 rounded">Box 4</div>
+    </div>
+
+    <div class="space-y-4">
+      <h2 class="text-xl font-bold">Component Checklist:</h2>
+      <ul class="space-y-2">
+        <li>✅ Header - Mobile menu working</li>
+        <li>✅ Hero - Responsive text sizes</li>
+        <li>✅ Restaurant Grid - 1/2/3 columns</li>
+        <li>✅ Cuisine Carousel - Dynamic items per view</li>
+        <li>✅ Blog Carousel - Dynamic items per view</li>
+        <li>✅ Contact Form - 2-column on desktop, stacked on mobile</li>
+        <li>✅ Footer - Responsive grid layout</li>
+      </ul>
+    </div>
+  </div>
+</Layout>
