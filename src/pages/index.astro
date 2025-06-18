@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.tsx';
 import RestaurantGrid from '../components/RestaurantGrid.tsx';
+import EligibilityBanner from '../components/EligibilityBanner.tsx';
+import WhatIsHalal from '../components/WhatIsHalal.tsx';
 ---
 
 <Layout title="GoHalalLife - Find Halal Restaurants Near You">
@@ -14,4 +16,10 @@ import RestaurantGrid from '../components/RestaurantGrid.tsx';
       <RestaurantGrid client:visible />
     </div>
   </section>
+
+  <!-- Eligibility Banner -->
+  <EligibilityBanner />
+
+  <!-- What is Halal Section -->
+  <WhatIsHalal />
 </Layout>
