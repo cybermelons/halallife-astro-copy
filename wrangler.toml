@@ -5,42 +5,42 @@ compatibility_date = "2025-06-18"
 # Build configuration
 [build]
 command = "pnpm build"
-build = "dist"
+cwd = "dist"
 
 # Environment variables (non-sensitive)
-[vars]
-API_VERSION = "v1"
-SITE_URL = "https://halallife.pages.dev"
+#[vars]
+#API_VERSION = "v1"
+#SITE_URL = "https://halallife.pages.dev"
+#
+## Development settings
+#[dev]
+#port = 8788
+#local_protocol = "http"
+#
+## Pages Functions configuration (for future API routes)
+#[[kv_namespaces]]
+#binding = "CACHE"
+#id = "your-kv-namespace-id"
+#preview_id = "your-preview-kv-id"
+#
+## Durable Objects (for future real-time features)
+## [[durable_objects.bindings]]
+## name = "SESSIONS"
+## class_name = "SessionManager"
+## script_name = "session-worker"
+#
+## Deployment settings
+#pages_build_output_dir = "dist"
+#
+## Routes for edge functions
+#[[routes]]
+#pattern = "/api/*"
+#zone_name = "gohalallife.com" # Update when you have custom domain
 
-# Development settings
-[dev]
-port = 8788
-local_protocol = "http"
-
-# Pages Functions configuration (for future API routes)
-[[kv_namespaces]]
-binding = "CACHE"
-id = "your-kv-namespace-id"
-preview_id = "your-preview-kv-id"
-
-# Durable Objects (for future real-time features)
-# [[durable_objects.bindings]]
-# name = "SESSIONS"
-# class_name = "SessionManager"
-# script_name = "session-worker"
-
-# Routes for edge functions
-[[routes]]
-pattern = "/api/*"
-zone_name = "gohalallife.com" # Update when you have custom domain
+#compatibility_flags = [ "nodejs_compat" ]
 
 # Compatibility flags for edge runtime
-[compatibility_flags]
-nodejs_compat = true
 
-# Deployment settings
-[pages_build_output_dir]
-path = "dist"
 
 # Future API routes will go in /functions directory
 # Example structure:
