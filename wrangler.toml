@@ -7,6 +7,9 @@ compatibility_date = "2025-06-18"
 command = "pnpm build"
 cwd = "dist"
 
+[assets]
+directory = "./dist"
+
 # Environment variables (non-sensitive)
 #[vars]
 #API_VERSION = "v1"
