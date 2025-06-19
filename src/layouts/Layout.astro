@@ -30,8 +30,16 @@ const { title, description = 'GoHalalLife - Find Halal Restaurants Near You' } =
     <title>{title}</title>
   </head>
   <body>
+    <!-- Skip Navigation Links -->
+    <a href="#main-content" class="skip-link">
+      Skip to main content
+    </a>
+    <a href="#restaurant-search" class="skip-link">
+      Skip to restaurant search
+    </a>
+    
     <Header client:load />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />

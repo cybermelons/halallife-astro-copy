@@ -41,7 +41,7 @@ const Header = () => {
           <a href="/" className="flex items-center">
             <img 
               src="/assets/logos/gohalallifelogo.png" 
-              alt="GoHalalLife" 
+              alt="GoHalalLife - Find Halal Restaurants Near You" 
               className="h-10 w-auto"
             />
           </a>
@@ -55,9 +55,21 @@ const Header = () => {
                     className="text-secondary hover:text-primary transition-colors duration-200 flex items-center gap-1 py-2"
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
+                    onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActiveDropdown(activeDropdown === item.label ? null : item.label);
+                      } else if (e.key === 'Escape') {
+                        setActiveDropdown(null);
+                      }
+                    }}
+                    aria-haspopup="true"
+                    aria-expanded={activeDropdown === item.label}
+                    aria-controls={`dropdown-${item.label.toLowerCase().replace(' ', '-')}`}
                   >
                     {item.label}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -72,21 +84,27 @@ const Header = () => {
                 
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === item.label && (
-                  <div 
+                  <ul 
+                    id={`dropdown-${item.label.toLowerCase().replace(' ', '-')}`}
+                    role="menu"
+                    aria-label={`${item.label} submenu`}
                     className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     {item.dropdown.map((subItem) => (
-                      <a
-                        key={subItem.label}
-                        href={subItem.href}
-                        className="block px-4 py-2 text-sm text-secondary hover:bg-cuisinecard hover:text-primary transition-colors"
-                      >
-                        {subItem.label}
-                      </a>
+                      <li role="none" key={subItem.label}>
+                        <a
+                          href={subItem.href}
+                          role="menuitem"
+                          tabIndex={activeDropdown === item.label ? 0 : -1}
+                          className="block px-4 py-2 text-sm text-secondary hover:bg-cuisinecard hover:text-primary transition-colors"
+                        >
+                          {subItem.label}
+                        </a>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 )}
               </div>
             ))}
@@ -95,7 +113,7 @@ const Header = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-4">
             <Button variant="outline" className="hidden md:flex">
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
               Add Restaurant
@@ -112,7 +130,7 @@ const Header = () => {
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 {mobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
