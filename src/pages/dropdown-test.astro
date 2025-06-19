@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Dropdown Hover Test" description="Testing the fixed dropdown hover behavior">
+  <section class="py-16">
+    <div class="sitewidth">
+      <h1 class="heading mb-8 text-center">Dropdown Hover Test</h1>
+      
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
+          <h2 class="text-xl font-semibold mb-4 text-emerald-800">✅ Fixed: Dropdown Hover Behavior</h2>
+          <p class="text-emerald-700 mb-4">The dropdown menu now stays open when moving your mouse from the trigger button to the dropdown menu.</p>
+          
+          <h3 class="font-semibold mb-2">What was fixed:</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Added padding-top to the dropdown to create an invisible bridge</li>
+            <li>Implemented a 300ms delay before closing the dropdown</li>
+            <li>Moved mouse leave handler to the parent container</li>
+            <li>Added clearTimeout to prevent premature closing</li>
+          </ul>
+        </div>
+        
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <h2 class="text-xl font-semibold mb-4 text-blue-800">🧪 How to Test</h2>
+          <ol class="list-decimal list-inside space-y-2 text-gray-700">
+            <li>Hover over "Restaurants" or "Cuisines" in the header</li>
+            <li>Move your mouse down to the dropdown menu</li>
+            <li>The menu should stay open and allow you to select items</li>
+            <li>The menu closes when you move away from both the trigger and dropdown</li>
+          </ol>
+        </div>
+        
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+          <h2 class="text-xl font-semibold mb-4 text-gray-800">🔧 Technical Details</h2>
+          <pre class="bg-white p-4 rounded border border-gray-300 overflow-x-auto text-sm"><code>// Added delay mechanism
+const handleMouseEnter = (label: string) => {
+  if (dropdownTimeout) {
+    clearTimeout(dropdownTimeout);
+    setDropdownTimeout(null);
+  }
+  setActiveDropdown(label);
+};
+
+const handleMouseLeave = () => {
+  const timeout = setTimeout(() => {
+    setActiveDropdown(null);
+  }, 300); // 300ms delay
+  setDropdownTimeout(timeout);
+};</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

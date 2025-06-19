@@ -5,10 +5,26 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [currentPath, setCurrentPath] = useState('');
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     setCurrentPath(window.location.pathname);
   }, []);
+
+  const handleMouseEnter = (label: string) => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300); // 300ms delay before closing
+    setDropdownTimeout(timeout);
+  };
 
   const navItems = [
     { 
@@ -52,14 +68,15 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8"
+               onMouseLeave={handleMouseLeave}
+          >
             {navItems.map((item) => (
-              <div key={item.label} className="relative">
+              <div key={item.label} className="relative group">
                 {item.dropdown ? (
                   <button
-                    className="text-secondary hover:text-primary transition-colors duration-200 flex items-center gap-1 py-2"
-                    onMouseEnter={() => setActiveDropdown(item.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="text-secondary hover:text-primary transition-colors duration-200 flex items-center gap-1 py-2 px-1"
+                    onMouseEnter={() => handleMouseEnter(item.label)}
                     onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
@@ -94,10 +111,11 @@ const Header = () => {
                     id={`dropdown-${item.label.toLowerCase().replace(' ', '-')}`}
                     role="menu"
                     aria-label={`${item.label} submenu`}
-                    className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
-                    onMouseEnter={() => setActiveDropdown(item.label)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="absolute top-full left-0 pt-2 w-48 z-50"
+                    onMouseEnter={() => handleMouseEnter(item.label)}
+                    onMouseLeave={handleMouseLeave}
                   >
+                    <div className="bg-white rounded-lg shadow-lg py-2">
                     {item.dropdown.map((subItem) => (
                       <li role="none" key={subItem.label}>
                         <a
@@ -111,6 +129,7 @@ const Header = () => {
                         </a>
                       </li>
                     ))}
+                    </div>
                   </ul>
                 )}
               </div>
