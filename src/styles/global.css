@@ -12,6 +12,7 @@
   height: 1px;
   overflow: hidden;
   z-index: 999999;
+  display: inline-block;
 }
 
 .skip-link:focus {
@@ -28,6 +29,8 @@
   text-decoration: none;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  outline: 3px solid #10b981;
+  outline-offset: 2px;
 }
 
 /* Focus Indicators - WCAG 2.4.7 */
