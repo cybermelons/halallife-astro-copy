@@ -15,6 +15,7 @@ interface BlogPost {
 
 const BlogCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const blogPosts: BlogPost[] = [
     {
@@ -79,11 +80,24 @@ const BlogCarousel = () => {
     return () => window.removeEventListener('resize', updateItemsPerView);
   }, []);
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, maxIndex]);
+
   const handlePrevious = () => {
+    setIsAutoPlaying(false);
     setCurrentIndex(Math.max(0, currentIndex - 1));
   };
 
   const handleNext = () => {
+    setIsAutoPlaying(false);
     setCurrentIndex(Math.min(maxIndex, currentIndex + 1));
   };
 
@@ -100,9 +114,55 @@ const BlogCarousel = () => {
           </p>
         </div>
 
+        {/* Carousel Controls */}
+        <div className="flex justify-center gap-2 mb-6">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="rounded-full"
+            aria-label={isAutoPlaying ? "Pause blog carousel" : "Play blog carousel"}
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              {isAutoPlaying ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              )}
+            </svg>
+          </Button>
+        </div>
+
+        {/* Screen reader announcements */}
+        <div 
+          role="status" 
+          aria-live="polite" 
+          aria-atomic="true" 
+          className="sr-only"
+        >
+          Showing blog posts {currentIndex + 1} to {Math.min(currentIndex + itemsPerView, blogPosts.length)} of {blogPosts.length}
+        </div>
+
         {/* Blog Grid */}
         <div className="relative">
-          <div className="overflow-hidden">
+          <div 
+            className="overflow-hidden"
+            onMouseEnter={() => setIsAutoPlaying(false)}
+            onMouseLeave={() => setIsAutoPlaying(true)}
+            onKeyDown={(e) => {
+              if (e.key === 'ArrowLeft') {
+                handlePrevious();
+              } else if (e.key === 'ArrowRight') {
+                handleNext();
+              } else if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                setIsAutoPlaying(!isAutoPlaying);
+              }
+            }}
+            tabIndex={0}
+            role="region"
+            aria-label="Blog posts carousel"
+          >
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)` }}

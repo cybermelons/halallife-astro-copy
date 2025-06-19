@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [currentPath, setCurrentPath] = useState('');
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   const navItems = [
     { 
@@ -34,20 +39,20 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="sitewidth">
+    <header className="bg-white shadow-sm sticky top-0 z-50" role="banner">
+      <nav className="sitewidth" role="navigation" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center">
             <img 
               src="/assets/logos/gohalallifelogo.png" 
-              alt="GoHalalLife" 
+              alt="GoHalalLife - Find Halal Restaurants Near You" 
               className="h-10 w-auto"
             />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.label} className="relative">
                 {item.dropdown ? (
@@ -55,16 +60,29 @@ const Header = () => {
                     className="text-secondary hover:text-primary transition-colors duration-200 flex items-center gap-1 py-2"
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
+                    onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActiveDropdown(activeDropdown === item.label ? null : item.label);
+                      } else if (e.key === 'Escape') {
+                        setActiveDropdown(null);
+                      }
+                    }}
+                    aria-haspopup="true"
+                    aria-expanded={activeDropdown === item.label}
+                    aria-controls={`dropdown-${item.label.toLowerCase().replace(' ', '-')}`}
                   >
                     {item.label}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                 ) : (
                   <a
                     href={item.href}
-                    className="text-secondary hover:text-primary transition-colors duration-200"
+                    className={`text-secondary hover:text-primary transition-colors duration-200 ${currentPath === item.href ? 'text-primary font-semibold' : ''}`}
+                    aria-current={currentPath === item.href ? 'page' : undefined}
                   >
                     {item.label}
                   </a>
@@ -72,30 +90,37 @@ const Header = () => {
                 
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === item.label && (
-                  <div 
+                  <ul 
+                    id={`dropdown-${item.label.toLowerCase().replace(' ', '-')}`}
+                    role="menu"
+                    aria-label={`${item.label} submenu`}
                     className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     {item.dropdown.map((subItem) => (
-                      <a
-                        key={subItem.label}
-                        href={subItem.href}
-                        className="block px-4 py-2 text-sm text-secondary hover:bg-cuisinecard hover:text-primary transition-colors"
-                      >
-                        {subItem.label}
-                      </a>
+                      <li role="none" key={subItem.label}>
+                        <a
+                          href={subItem.href}
+                          role="menuitem"
+                          tabIndex={activeDropdown === item.label ? 0 : -1}
+                          className="block px-4 py-2 text-sm text-secondary hover:bg-cuisinecard hover:text-primary transition-colors"
+                          aria-current={currentPath === subItem.href ? 'page' : undefined}
+                        >
+                          {subItem.label}
+                        </a>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 )}
               </div>
             ))}
-          </nav>
+          </div>
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-4">
             <Button variant="outline" className="hidden md:flex">
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
               Add Restaurant
@@ -107,12 +132,12 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-2.5 min-w-[44px] min-h-[44px]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 {mobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -151,7 +176,7 @@ const Header = () => {
             ))}
             <div className="pt-4 space-y-2 border-t mt-4">
               <Button variant="outline" className="w-full">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                 </svg>
                 Add Restaurant
@@ -162,7 +187,7 @@ const Header = () => {
             </div>
           </div>
         )}
-      </div>
+      </nav>
     </header>
   );
 };

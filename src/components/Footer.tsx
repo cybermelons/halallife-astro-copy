@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FormError from './FormError';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [emailError, setEmailError] = useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = useState('');
+
+  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem('newsletter-email') as HTMLInputElement).value;
+    
+    // Reset error state
+    setEmailError(false);
+    setEmailErrorMessage('');
+    
+    // Basic validation
+    if (!email) {
+      setEmailError(true);
+      setEmailErrorMessage('Email address is required');
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError(true);
+      setEmailErrorMessage('Please enter a valid email address');
+      return;
+    }
+    
+    // Submit form (placeholder)
+    console.log('Newsletter subscription:', email);
+    form.reset();
+  };
 
   const footerLinks = {
     about: [
@@ -31,7 +62,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-secondary text-white">
+    <footer className="bg-secondary text-white" role="contentinfo">
       {/* Main Footer */}
       <div className="sitewidth py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -39,7 +70,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <img 
               src="/assets/logos/gohalallifelogo.png" 
-              alt="GoHalalLife" 
+              alt="GoHalalLife - Find Halal Restaurants Near You" 
               className="h-10 mb-4 brightness-0 invert"
             />
             <p className="text-gray-400 mb-6 max-w-sm">
@@ -49,27 +80,40 @@ const Footer = () => {
             
             {/* Newsletter */}
             <div>
-              <h4 className="font-semibold mb-3">Subscribe to our newsletter</h4>
-              <form className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  aria-label="Email address for newsletter"
-                  className="flex-1 px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-primary"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-primary hover:bg-primary-hover text-white rounded-md transition-colors"
-                >
-                  Subscribe
-                </button>
+              <h3 className="font-semibold mb-3 text-base">Subscribe to our newsletter</h3>
+              <form className="flex flex-col gap-2" aria-label="Newsletter subscription" onSubmit={handleNewsletterSubmit}>
+                <div className="flex gap-2">
+                  <label htmlFor="newsletter-email" className="sr-only">
+                    Email address for newsletter
+                  </label>
+                  <input
+                    id="newsletter-email"
+                    name="newsletter-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    aria-label="Email address for newsletter"
+                    aria-required="true"
+                    aria-invalid={emailError}
+                    aria-describedby={emailError ? "newsletter-error" : undefined}
+                    required
+                    className="flex-1 px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-primary"
+                  />
+                  <button
+                    type="submit"
+                    className="px-6 py-2 bg-primary hover:bg-primary-hover text-white rounded-md transition-colors"
+                    aria-label="Subscribe to newsletter"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+                <FormError id="newsletter-error" message={emailErrorMessage} visible={emailError} />
               </form>
             </div>
           </div>
 
           {/* Links Sections */}
           <div>
-            <h4 className="font-semibold mb-4">About</h4>
+            <h3 className="font-semibold mb-4 text-base">About</h3>
             <ul className="space-y-3">
               {footerLinks.about.map((link) => (
                 <li key={link.label}>
@@ -85,7 +129,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h3 className="font-semibold mb-4 text-base">Resources</h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
@@ -101,7 +145,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
+            <h3 className="font-semibold mb-4 text-base">Legal</h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
@@ -121,7 +165,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h4 className="font-semibold mb-2">Get the App</h4>
+              <h3 className="font-semibold mb-2 text-base">Get the App</h3>
               <p className="text-gray-400 mb-4">
                 Download our mobile app for the best halal dining experience on the go.
               </p>
@@ -145,7 +189,7 @@ const Footer = () => {
             
             {/* Social Links */}
             <div className="md:text-right">
-              <h4 className="font-semibold mb-4">Connect with us</h4>
+              <h3 className="font-semibold mb-4 text-base">Connect with us</h3>
               <div className="flex gap-4 md:justify-end">
                 {footerLinks.connect.map((link) => (
                   <a
@@ -153,10 +197,16 @@ const Footer = () => {
                     href={link.href}
                     target={link.external ? '_blank' : undefined}
                     rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
-                    aria-label={link.label}
+                    className="w-11 h-11 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors relative"
+                    aria-label={`Visit our ${link.label} page (opens in new window)`}
                   >
-                    <span className="text-sm">{link.label[0]}</span>
+                    <span className="text-sm font-bold" aria-hidden="true">
+                      {link.label[0]}
+                      <svg className="w-3 h-3 absolute top-1 right-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                      </svg>
+                    </span>
                   </a>
                 ))}
               </div>

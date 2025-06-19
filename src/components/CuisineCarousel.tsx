@@ -92,12 +92,27 @@ const CuisineCarousel = () => {
             <Button
               variant="outline"
               size="icon"
+              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+              className="rounded-full"
+              aria-label={isAutoPlaying ? "Pause carousel" : "Play carousel"}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                {isAutoPlaying ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                )}
+              </svg>
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
               onClick={handlePrevious}
               disabled={currentIndex === 0}
               className="rounded-full"
               aria-label="Previous cuisines"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </Button>
@@ -109,11 +124,21 @@ const CuisineCarousel = () => {
               className="rounded-full"
               aria-label="Next cuisines"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Button>
           </div>
+        </div>
+
+        {/* Screen reader announcements */}
+        <div 
+          role="status" 
+          aria-live="polite" 
+          aria-atomic="true" 
+          className="sr-only"
+        >
+          Showing cuisines {currentIndex + 1} to {Math.min(currentIndex + itemsPerView, cuisines.length)} of {cuisines.length}
         </div>
 
         {/* Carousel Container */}
@@ -121,6 +146,19 @@ const CuisineCarousel = () => {
           className="overflow-hidden"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowLeft') {
+              handlePrevious();
+            } else if (e.key === 'ArrowRight') {
+              handleNext();
+            } else if (e.key === ' ' || e.key === 'Enter') {
+              e.preventDefault();
+              setIsAutoPlaying(!isAutoPlaying);
+            }
+          }}
+          tabIndex={0}
+          role="region"
+          aria-label="Cuisine carousel"
         >
           <div 
             ref={carouselRef}
