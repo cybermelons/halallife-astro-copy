@@ -34,8 +34,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="sitewidth">
+    <header className="bg-white shadow-sm sticky top-0 z-50" role="banner">
+      <nav className="sitewidth" role="navigation" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center">
@@ -47,7 +47,7 @@ const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <div key={item.label} className="relative">
                 {item.dropdown ? (
@@ -108,7 +108,7 @@ const Header = () => {
                 )}
               </div>
             ))}
-          </nav>
+          </div>
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-4">
@@ -169,7 +169,7 @@ const Header = () => {
             ))}
             <div className="pt-4 space-y-2 border-t mt-4">
               <Button variant="outline" className="w-full">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                 </svg>
                 Add Restaurant
@@ -180,7 +180,7 @@ const Header = () => {
             </div>
           </div>
         )}
-      </div>
+      </nav>
     </header>
   );
 };

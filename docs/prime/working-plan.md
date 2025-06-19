@@ -71,26 +71,26 @@ Implement all 32 accessibility issues identified in the WCAG audit to achieve Le
 - [ ] Fix any skipped heading levels
 
 #### 2. Decorative SVGs Not Hidden (WCAG 1.1.1)
-- [ ] Add aria-hidden="true" to all decorative icons
-- [ ] Review Header.tsx dropdown arrows
-- [ ] Review all icon usage in components
+- [x] Add aria-hidden="true" to all decorative icons
+- [x] Review Header.tsx dropdown arrows
+- [x] Review all icon usage in components
 
 #### 3. Mobile Menu State Not Announced (WCAG 4.1.3)
-- [ ] Add aria-expanded to mobile menu button
-- [ ] Add aria-label="Mobile menu"
-- [ ] Announce state changes with aria-live
+- [x] Add aria-expanded to mobile menu button
+- [x] Add aria-label="Mobile menu"
+- [x] Announce state changes with aria-live
 
 #### 4. Missing Page Landmarks (WCAG 1.3.1)
-- [ ] Add role="banner" to header
-- [ ] Add role="navigation" with aria-label to all navs
-- [ ] Add role="main" to main content
-- [ ] Add role="contentinfo" to footer
-- [ ] Add role="search" to search areas
+- [x] Add role="banner" to header
+- [x] Add role="navigation" with aria-label to all navs
+- [x] Add role="main" to main content
+- [x] Add role="contentinfo" to footer
+- [x] Add role="search" to search areas
 
 #### 5. Search Input Missing Label (WCAG 3.3.2)
-- [ ] Add label to Hero.tsx search input
-- [ ] Add to blogs.astro search input
-- [ ] Include search instructions in label
+- [x] Add label to Hero.tsx search input
+- [x] Add to blogs.astro search input
+- [x] Include search instructions in label
 
 #### 6. Color Contrast Issues (WCAG 1.4.3)
 - [ ] Audit all text/background combinations
@@ -250,7 +250,7 @@ Implement all 32 accessibility issues identified in the WCAG audit to achieve Le
 ## Progress Tracking
 This plan addresses all 32 issues from the audit:
 - Critical: 7/8 completed (only testing remaining)
-- High: 0/12 completed  
+- High: 5/12 completed  
 - Medium: 0/7 completed
 - Low: 0/5 completed
-- **Total: 7/32 completed**
+- **Total: 12/32 completed**

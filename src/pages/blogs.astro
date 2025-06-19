@@ -63,14 +63,19 @@ const mostPopular = [...blogPosts, ...blogPosts].slice(0, 8);
         </p>
         
         <!-- Search Bar -->
-        <div class="relative max-w-2xl mx-auto">
-          <Search class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+        <form role="search" class="relative max-w-2xl mx-auto">
+          <label for="blog-search" class="sr-only">
+            Search blog posts, guides, and halal food articles
+          </label>
+          <Search class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" aria-hidden="true" />
           <Input 
+            id="blog-search"
             type="text" 
             placeholder="Search anything you like"
+            aria-label="Search blog posts, guides, and halal food articles"
             class="pl-12 pr-4 py-3 text-lg rounded-full border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
-        </div>
+        </form>
       </div>
     </div>
   </section>

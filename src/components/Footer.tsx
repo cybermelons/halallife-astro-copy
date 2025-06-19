@@ -62,7 +62,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-secondary text-white">
+    <footer className="bg-secondary text-white" role="contentinfo">
       {/* Main Footer */}
       <div className="sitewidth py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">

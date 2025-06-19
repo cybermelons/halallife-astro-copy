@@ -26,9 +26,12 @@ const Hero = () => {
           </p>
 
           {/* Search Form */}
-          <form onSubmit={handleSearch} className="mb-12">
+          <form onSubmit={handleSearch} className="mb-12" role="search" id="restaurant-search">
             <div className="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
               <div className="relative flex-1">
+                <label htmlFor="location-search" className="sr-only">
+                  Enter your location or zip code to find halal restaurants
+                </label>
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg 
                     className="h-5 w-5 text-gray-400" 
@@ -51,12 +54,13 @@ const Hero = () => {
                   </svg>
                 </div>
                 <Input
+                  id="location-search"
                   type="text"
                   placeholder="Enter your location or zip code"
                   value={searchLocation}
                   onChange={(e) => setSearchLocation(e.target.value)}
                   className="pl-10 h-12 md:h-14 text-base md:text-lg"
-                  aria-label="Search location"
+                  aria-label="Enter your location or zip code to find halal restaurants"
                 />
               </div>
               <Button 
