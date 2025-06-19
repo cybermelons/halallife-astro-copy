@@ -33,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
         
         <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
           <h2 class="text-xl font-semibold mb-4 text-gray-800">🔧 Technical Details</h2>
-          <pre class="bg-white p-4 rounded border border-gray-300 overflow-x-auto text-sm"><code>// Added delay mechanism
+          <pre class="bg-white p-4 rounded border border-gray-300 overflow-x-auto text-sm"><code>{`// Added delay mechanism
 const handleMouseEnter = (label: string) => {
   if (dropdownTimeout) {
     clearTimeout(dropdownTimeout);
@@ -47,7 +47,7 @@ const handleMouseLeave = () => {
     setActiveDropdown(null);
   }, 300); // 300ms delay
   setDropdownTimeout(timeout);
-};</code></pre>
+};`}</code></pre>
         </div>
       </div>
     </div>
