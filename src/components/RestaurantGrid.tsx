@@ -95,7 +95,18 @@ const RestaurantGrid = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {restaurants.map((restaurant) => (
-        <Card key={restaurant.id} className="overflow-hidden hovereffect cursor-pointer">
+        <Card 
+          key={restaurant.id} 
+          className="overflow-hidden hovereffect cursor-pointer" 
+          tabIndex={0}
+          role="article"
+          aria-label={`${restaurant.name} restaurant`}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              console.log(`Navigate to ${restaurant.name}`);
+            }
+          }}
+        >
           {/* Restaurant Image */}
           <div className="relative h-48 bg-gray-200">
             <img 

@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [currentPath, setCurrentPath] = useState('');
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   const navItems = [
     { 
@@ -76,7 +81,8 @@ const Header = () => {
                 ) : (
                   <a
                     href={item.href}
-                    className="text-secondary hover:text-primary transition-colors duration-200"
+                    className={`text-secondary hover:text-primary transition-colors duration-200 ${currentPath === item.href ? 'text-primary font-semibold' : ''}`}
+                    aria-current={currentPath === item.href ? 'page' : undefined}
                   >
                     {item.label}
                   </a>
@@ -99,6 +105,7 @@ const Header = () => {
                           role="menuitem"
                           tabIndex={activeDropdown === item.label ? 0 : -1}
                           className="block px-4 py-2 text-sm text-secondary hover:bg-cuisinecard hover:text-primary transition-colors"
+                          aria-current={currentPath === subItem.href ? 'page' : undefined}
                         >
                           {subItem.label}
                         </a>
@@ -125,7 +132,7 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-2.5 min-w-[44px] min-h-[44px]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}

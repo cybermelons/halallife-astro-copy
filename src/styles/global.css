@@ -45,6 +45,14 @@ select:focus,
   outline-offset: 2px;
 }
 
+/* Focus styles for card links */
+a:focus-visible > .rounded-lg,
+a:focus-visible > [class*="Card"],
+.group:focus-within > .rounded-lg,
+.group:focus-within > [class*="Card"] {
+  box-shadow: 0 0 0 3px #10b981;
+}
+
 /* For elements with dark backgrounds */
 .bg-primary:focus,
 .bg-secondary:focus,
@@ -167,7 +175,7 @@ body {
 
 /* Card Hover Effect */
 .hovereffect {
-  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer;
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer focus-within:scale-105 focus-within:shadow-lg focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2;
 }
 
 /* Custom Scrollbar Hide */

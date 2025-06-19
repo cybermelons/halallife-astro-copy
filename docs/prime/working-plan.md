@@ -99,15 +99,15 @@ Implement all 32 accessibility issues identified in the WCAG audit to achieve Le
 - [ ] Test with contrast analyzer tool
 
 #### 7. Links Opening in New Windows (WCAG 3.2.5)
-- [ ] Add "(opens in new window)" to aria-labels
-- [ ] Review all external links in Footer.tsx
-- [ ] Add visual indicator if possible
+- [x] Add "(opens in new window)" to aria-labels
+- [x] Review all external links in Footer.tsx
+- [x] Add visual indicator if possible
 
 #### 8. Interactive Elements Too Small (WCAG 2.5.5)
-- [ ] Ensure all touch targets are minimum 44x44 pixels
-- [ ] Review mobile menu button
-- [ ] Review social media links
-- [ ] Review form inputs on mobile
+- [x] Ensure all touch targets are minimum 44x44 pixels
+- [x] Review mobile menu button
+- [x] Review social media links
+- [x] Review form inputs on mobile
 
 #### 9. Missing Loading States (WCAG 4.1.3)
 - [ ] Add aria-busy to loading containers
@@ -115,20 +115,20 @@ Implement all 32 accessibility issues identified in the WCAG audit to achieve Le
 - [ ] Implement loading spinners with proper labels
 
 #### 10. Carousel Accessibility (WCAG 2.1.1, 2.2.2)
-- [ ] Add pause/play controls to CuisineCarousel
-- [ ] Add pause/play controls to BlogCarousel
-- [ ] Implement keyboard navigation
-- [ ] Add slide announcements
+- [x] Add pause/play controls to CuisineCarousel
+- [x] Add pause/play controls to BlogCarousel
+- [x] Implement keyboard navigation
+- [x] Add slide announcements
 
 #### 11. No Visible Focus on Cards (WCAG 2.4.7)
-- [ ] Add focus styles to blog cards
-- [ ] Add focus styles to restaurant cards
-- [ ] Ensure focus is visible on all card links
+- [x] Add focus styles to blog cards
+- [x] Add focus styles to restaurant cards
+- [x] Ensure focus is visible on all card links
 
 #### 12. Missing Navigation Context (WCAG 2.4.8)
-- [ ] Add aria-current="page" to active nav items
-- [ ] Implement in Header.tsx navigation
-- [ ] Style current page indicator
+- [x] Add aria-current="page" to active nav items
+- [x] Implement in Header.tsx navigation
+- [x] Style current page indicator
 
 ### Phase 3: Medium Priority Issues (7 items)
 
@@ -250,7 +250,7 @@ Implement all 32 accessibility issues identified in the WCAG audit to achieve Le
 ## Progress Tracking
 This plan addresses all 32 issues from the audit:
 - Critical: 7/8 completed (only testing remaining)
-- High: 5/12 completed  
+- High: 11/12 completed (only Missing Loading States remaining)
 - Medium: 0/7 completed
 - Low: 0/5 completed
-- **Total: 12/32 completed**
+- **Total: 18/32 completed**
