@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import LoadingContainer from './LoadingContainer';
 
 interface Restaurant {
   id: number;
@@ -16,6 +17,8 @@ interface Restaurant {
 }
 
 const RestaurantGrid = () => {
+  // Example loading state - in real app this would come from data fetching
+  const [isLoading, setIsLoading] = useState(false);
   // Mock data for demonstration
   const restaurants: Restaurant[] = [
     {
@@ -93,7 +96,11 @@ const RestaurantGrid = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <LoadingContainer 
+      isLoading={isLoading} 
+      loadingMessage="Loading restaurants near you..."
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {restaurants.map((restaurant) => (
         <Card 
           key={restaurant.id} 
@@ -170,6 +177,7 @@ const RestaurantGrid = () => {
         </Card>
       ))}
     </div>
+    </LoadingContainer>
   );
 };
 

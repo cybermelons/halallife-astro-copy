@@ -87,7 +87,11 @@ const mostPopular = [...blogPosts, ...blogPosts].slice(0, 8);
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {featuredPosts.map((post, index) => (
-          <a href={`/blog/${post.id}`} class="group focus:outline-none">
+          <a 
+            href={`/blog/${post.id}`} 
+            class="group focus:outline-none"
+            aria-label={`${post.title}. ${post.excerpt}. ${post.readTime}. Published ${post.date}`}
+          >
             <Card class="h-full hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
               <div class="aspect-video bg-gray-200 relative overflow-hidden">
                 {index === 0 && (
@@ -132,7 +136,11 @@ const mostPopular = [...blogPosts, ...blogPosts].slice(0, 8);
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {recentlyAdded.map((post) => (
-          <a href={`/blog/${post.id}`} class="group focus:outline-none">
+          <a 
+            href={`/blog/${post.id}`} 
+            class="group focus:outline-none"
+            aria-label={`${post.title}. ${post.excerpt}. ${post.readTime}. Published ${post.date}`}
+          >
             <Card class="h-full hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
               <div class="aspect-video bg-gray-200 relative overflow-hidden">
                 <div class="w-full h-full bg-gradient-to-br from-blue-100 to-blue-50"></div>
@@ -167,7 +175,11 @@ const mostPopular = [...blogPosts, ...blogPosts].slice(0, 8);
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {mostPopular.map((post) => (
-          <a href={`/blog/${post.id}`} class="group focus:outline-none">
+          <a 
+            href={`/blog/${post.id}`} 
+            class="group focus:outline-none"
+            aria-label={`${post.title}. ${post.excerpt}. ${post.readTime}. Published ${post.date}`}
+          >
             <Card class="h-full hover:shadow-lg transition-shadow focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2">
               <div class="aspect-video bg-gray-200 relative overflow-hidden">
                 <div class="w-full h-full bg-gradient-to-br from-purple-100 to-purple-50"></div>
